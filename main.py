@@ -130,22 +130,107 @@ print('Means:', clusterer.means())
 #print("SSE: ", sse)
 plt.figure(4)
 plt.title('Euclidean Distance')
+plt.xlabel('Sepal Length (cm)')
+plt.ylabel('Sepal Width (cm)')
 plt.scatter(data[:,0],data[:,1], c=clusters, cmap='rainbow')
 sse = sse_ed(clusterer, data)
 print("SSE: ", sse)
 print()
 
-clusterer = KMeansClusterer(4, distance=cosine)
+total1 = 0
+total2 = 0
+total3 = 0
+total4 = 0
+for c in range(0,150):
+    if clusters[c] == 0:
+        ed = data[c]-clusterer.means()[0]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 1:
+        ed = data[c]-clusterer.means()[1]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 2:
+        ed = data[c]-clusterer.means()[2]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 3:
+        ed = data[c]-clusterer.means()[3]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+        
+print(total1/150)
+print(total2/150)
+print(total3/150)
+print(total4/150)
+print("Total Error(%): ", (total1/150+total2/150+total3/150+total4/150)/4)
+
+clusterer = KMeansClusterer(4, distance=cosine, avoid_empty_clusters=True)
 clusters = clusterer.cluster(data, True, trace=True)
 #print('Clustered:', data)
 print('As:', clusters)
 print('Means:', clusterer.means())
 plt.figure(5)
 plt.title('Cosine Distance')
+plt.xlabel('Sepal Length (cm)')
+plt.ylabel('Sepal Width (cm)')
 plt.scatter(data[:,0],data[:,1], c=clusters, cmap='rainbow')
 sse = sse_ed(clusterer, data)
 print("SSE: ", sse)
 print()
+
+
+total1 = 0
+total2 = 0
+total3 = 0
+total4 = 0
+for c in range(0,150):
+    if clusters[c] == 0:
+        ed = data[c]-clusterer.means()[0]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 1:
+        ed = data[c]-clusterer.means()[1]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 2:
+        ed = data[c]-clusterer.means()[2]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 3:
+        ed = data[c]-clusterer.means()[3]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+        
+print(total1/150)
+print(total2/150)
+print(total3/150)
+print(total4/150)
+print("Total Error(%): ", (total1/150+total2/150+total3/150+total4/150)/4)
 
 clusterer = KMeansClusterer(8, distance=jaccard, avoid_empty_clusters=True)
 clusters = clusterer.cluster(data, True, trace=True)
@@ -158,5 +243,44 @@ plt.scatter(data[:,0],data[:,1], c=clusters, cmap='rainbow')
 sse = sse_ed(clusterer, data)
 print("SSE: ", sse)
 print()
-dist = euclidean_distance(data[0], clusterer.means()[clusterer.classify_vectorspace(data[0])])
-print(dist)
+#dist = euclidean_distance(data[0], clusterer.means()[clusterer.classify_vectorspace(data[0])])
+
+total1 = 0
+total2 = 0
+total3 = 0
+total4 = 0
+for c in range(0,150):
+    if clusters[c] == 0:
+        ed = data[c]-clusterer.means()[0]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 1:
+        ed = data[c]-clusterer.means()[1]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 2:
+        ed = data[c]-clusterer.means()[2]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+    elif clusters[c] == 3:
+        ed = data[c]-clusterer.means()[3]
+        ed = abs(ed)
+        total1 = total1 + (ed[0]/data[c][0])
+        total2 = total2 + (ed[1]/data[c][1])
+        total3 = total3 + (ed[2]/data[c][2])
+        total4 = total4 + (ed[3]/data[c][3])
+        
+print(total1/150)
+print(total2/150)
+print(total3/150)
+print(total4/150)
+print("Total Error(%): ", (total1/150+total2/150+total3/150+total4/150)/4)
